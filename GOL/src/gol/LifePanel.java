@@ -228,8 +228,14 @@ public class LifePanel extends JPanel implements ActionListener, MouseListener, 
 			int y = (e.getY() - (e.getY() % size)) / size;
 			System.out.println(x + ", " + y);
 			
-			userInput[x][y] = 1;
-			
+			if(userInput[x][y] == 1)
+			{
+				userInput[x][y] = 0;
+			}
+			else if(userInput[x][y] == 0)
+			{
+				userInput[x][y] = 1;
+			}
 			mouseX = x;
 			mouseY = y;
 			
@@ -294,7 +300,7 @@ public class LifePanel extends JPanel implements ActionListener, MouseListener, 
 					for(int y = 0; y < (yHeight); y++)
 					{
 						beforeLife[x][y] = userInput[x][y];
-						System.out.println(beforeLife[x][y] + ", " + userInput[x][y]);
+						//System.out.println(beforeLife[x][y] + ", " + userInput[x][y]);
 						repaint();
 					}
 			}
